@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Confirmado</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(to bottom right, #003366, #66ccff); /* Degradê de azul escuro para azul claro */
+        }
+        .confirmation-message {
+            font-size: 1.5em;
+            color: #fff; /* Cor do texto para contraste com o fundo azul */
+        }
+        .details {
+            margin-top: 1em;
+            font-size: 1.2em;
+            color: #fff; /* Cor do texto para contraste com o fundo azul */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-message">Cadastro enviado com sucesso!</div>
+        <div class="details">
+            <p>Data da prova: 04/06/24 <span id="data-prova"></span></p>
+            <p>Local: <span id="local"></span></p>
+            <p>Número de inscrição: <span id="numero-inscricao"></span></p>
+        </div>
+    </div>
+    <script>
+        // Recupera os dados da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('data-prova').textContent = urlParams.get('dataProva') || '';
+        document.getElementById('local').textContent = urlParams.get('local') || 'Não disponível';
+        document.getElementById('numero-inscricao').textContent = urlParams.get('numeroInscricao') || '213';
+    </script>
+</body>
+</html>
